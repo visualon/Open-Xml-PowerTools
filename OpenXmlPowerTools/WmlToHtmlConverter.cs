@@ -411,17 +411,23 @@ namespace OpenXmlPowerTools
             {
                 try
                 {
+                    Uri uri = wordDoc.MainDocumentPart
+                            .HyperlinkRelationships
+                            .First(x => x.Id == (string)element.Attribute(R.id))
+                            .Uri;
+
+                    string anchor = element.Attribute(W.anchor) != null
+                            ? $"#{(string)element.Attribute(W.anchor)}"
+                            : "";
+
                     var a = new XElement(Xhtml.a,
-                        new XAttribute("href",
-                            wordDoc.MainDocumentPart
-                                .HyperlinkRelationships
-                                .First(x => x.Id == (string)element.Attribute(R.id))
-                                .Uri
-                            ),
+                        new XAttribute("href", uri + anchor),
                         element.Elements(W.r).Select(run => ConvertRun(wordDoc, settings, run))
                         );
+
                     if (!a.Nodes().Any())
                         a.Add(new XText(""));
+
                     return a;
                 }
                 catch (UriFormatException)
