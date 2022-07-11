@@ -165,6 +165,13 @@ namespace OpenXmlPowerTools
                 decimal decimalValue = decimal.Parse(twipsOrPoints.Substring(0, twipsOrPoints.Length - 2));
                 return (int)(decimalValue * 20);
             }
+            
+            // handle invalid twips values
+            if (twipsOrPoints.Contains('.'))
+            {
+                decimal decimalValue = decimal.Parse(twipsOrPoints);
+                return (int)decimalValue;
+            }
 
             return int.Parse(twipsOrPoints);
         }
