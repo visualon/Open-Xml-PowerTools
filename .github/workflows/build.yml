@@ -23,7 +23,7 @@ jobs:
           path: ~/.nuget/packages
           # Look to see if there is a cache hit for the corresponding requirements file
           # key: ${{ runner.os }}-nuget-${{ hashFiles('**/packages.lock.json') }}
-          key: ${{ runner.os }}-nuget-${{ hashFiles('**/*.csproj', '**/*.props', '**/*.targets'}}
+          key: ${{ runner.os }}-nuget-${{ hashFiles('**/*.csproj', '**/*.props', '**/*.targets') }}
           # restore-keys: |
           #   ${{ runner.os }}-nuget
 
@@ -54,7 +54,7 @@ jobs:
           path: ~/.nuget/packages
           # Look to see if there is a cache hit for the corresponding requirements file
           # key: ${{ runner.os }}-nuget-${{ hashFiles('**/packages.lock.json') }}
-          key: ${{ runner.os }}-nuget-${{ hashFiles('**/*.csproj', '**/*.props', '**/*.targets'}}
+          key: ${{ runner.os }}-nuget-${{ hashFiles('**/*.csproj', '**/*.props', '**/*.targets') }}
           # restore-keys: |
           #   ${{ runner.os }}-nuget
 
