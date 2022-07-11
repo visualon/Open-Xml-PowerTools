@@ -8,7 +8,7 @@ env:
 
 jobs:
 
-  build:
+  test:
     runs-on: windows-latest
     timeout-minutes: 15
 
@@ -27,10 +27,37 @@ jobs:
         run: dotnet restore
 
       - name: build
-        run: dontnet build --no-restore
+        run: dotnet build --no-restore
 
       - name: test
-        run: dontnet test --no-build .\OpenXmlPowerTools.Tests
+        run: dotnet test --no-build .\OpenXmlPowerTools.Tests
+
+  build:
+    needs: [test]
+    runs-on: windows-latest
+    timeout-minutes: 15
+    permissions:
+      packages: write
+
+    steps:
+      - uses: actions/checkout@2541b1294d2704b0964813337f33b291d3f8596b # tag=v3.0.2
+
+      # - uses: actions/cache@c3f1317a9e7b1ef106c153ac8c0f00fed3ddbc0d # tag=v3.0.4
+      #   with:
+      #     path: ~/.nuget/packages
+      #     # Look to see if there is a cache hit for the corresponding requirements file
+      #     key: ${{ runner.os }}-nuget-${{ hashFiles('**/packages.lock.json') }}
+      #     restore-keys: |
+      #       ${{ runner.os }}-nuget
+
+      - name: restore
+        run: dotnet restore
+
+      - name: build
+        run: dotnet build --no-restore
+
+      - name: pack
+        run: dotnet pack --no-build -o bin
 
       - uses: actions/upload-artifact@3cea5372237819ed00197afe530f5a7ea3e805c8 # tag=v3.1.0
         with:
