@@ -5,6 +5,7 @@ on:
 
 env:
   DOTNET_NOLOGO: true
+  ProjectLoadStyle: All
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.event.number || github.ref }}
@@ -28,13 +29,13 @@ jobs:
           #   ${{ runner.os }}-nuget
 
       - name: restore
-        run: dotnet restore
+        run: dotnet restore -p:ProjectLoadStyle=All
 
       - name: build
-        run: dotnet build --no-restore
+        run: dotnet build --no-restore -p:ProjectLoadStyle=All
 
       - name: test
-        run: dotnet test --no-build -f net461 .\OpenXmlPowerTools.Tests
+        run: dotnet test --no-build -p:ProjectLoadStyle=All
 
   build:
     needs: [test]
@@ -59,7 +60,7 @@ jobs:
           #   ${{ runner.os }}-nuget
 
       - name: pack
-        run: dotnet pack -o bin .\OpenXmlPowerTools\
+        run: dotnet pack -o bin .\OpenXmlPowerTools\ -p:ProjectLoadStyle=All
 
       - uses: actions/upload-artifact@3cea5372237819ed00197afe530f5a7ea3e805c8 # tag=v3.1.0
         with:
