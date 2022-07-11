@@ -65,7 +65,7 @@ jobs:
         run: dotnet build --no-restore
 
       - name: pack
-        run: dotnet pack --no-build -o bin
+        run: dotnet pack --no-build -o bin .\OpenXmlPowerTools\
 
       - uses: actions/upload-artifact@3cea5372237819ed00197afe530f5a7ea3e805c8 # tag=v3.1.0
         with:
