@@ -40,6 +40,8 @@ jobs:
       - name: Codecov
         uses: codecov/codecov-action@81cd2dc8148241f03f5839d295e000b8f761e378 # tag=v3.1.0
         if: always()
+        with:
+          files: '**/TestResults/*/*.cobertura.xml'
 
   build:
     needs: [test]
