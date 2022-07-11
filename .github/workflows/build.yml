@@ -59,10 +59,10 @@ jobs:
           #   ${{ runner.os }}-nuget
 
       - name: restore
-        run: dotnet restore
+        run: dotnet restore .\OpenXmlPowerTools\
 
       - name: build
-        run: dotnet build --no-restore
+        run: dotnet build --no-restore .\OpenXmlPowerTools\
 
       - name: pack
         run: dotnet pack --no-build -o bin .\OpenXmlPowerTools\
