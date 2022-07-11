@@ -60,7 +60,7 @@ namespace OpenXmlPowerTools
             return Parent
                 .Rows()
                 .Skip(headerRowsCount)
-                .SkipLast(totalRowsCount)
+                .PtSkipLast(totalRowsCount)
                 .Where(r =>
                 {
                     int rowId = Int32.Parse(r.RowId);
@@ -366,7 +366,7 @@ namespace OpenXmlPowerTools
 
         public static IEnumerable<Row> Rows(this WorksheetPart worksheetPart)
         {
-            XNamespace s = "http://schemas.openxmlformats.org/spreadsheetml/2006/main";
+            // XNamespace s = "http://schemas.openxmlformats.org/spreadsheetml/2006/main";
             var rows = worksheetPart
                 .GetXDocument()
                 .Root

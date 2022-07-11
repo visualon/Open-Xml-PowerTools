@@ -5,6 +5,7 @@ on:
 
 env:
   DOTNET_NOLOGO: true
+  ProjectLoadStyle: All
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.event.number || github.ref }}
@@ -34,7 +35,7 @@ jobs:
         run: dotnet build --no-restore
 
       - name: test
-        run: dotnet test --no-build -f net461 .\OpenXmlPowerTools.Tests
+        run: dotnet test --no-build
 
   build:
     needs: [test]
