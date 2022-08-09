@@ -18,7 +18,7 @@ steps:
 - script: echo $(Build.SourceBranch)
   displayName: 'Print SourceBranch'
 
-- task: DownloadPipelineArtifact@2
+- task: DownloadPipelineArtifact@2.198.0
   displayName: 'Download NuGet packages'
   inputs:
     source: 'specific'
