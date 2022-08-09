@@ -28,7 +28,7 @@ steps:
     patterns: '**/*.nupkg'
     targetPath: '$(Build.ArtifactStagingDirectory)'
 
-- task: DotNetCoreCLI@2
+- task: DotNetCoreCLI@2.208.1
   displayName: 'Push NuGet packages'
   inputs:
     command: 'push'
