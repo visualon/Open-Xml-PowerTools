@@ -28,7 +28,7 @@ steps:
     configFilePath: 'GitVersion.yml'
     additionalArguments: '/updateprojectfiles'
 
-- task: DotNetCoreCLI@2
+- task: DotNetCoreCLI@2.210.0
   displayName: 'Build $(buildConfiguration) configuration'
   inputs:
     command: 'build'
@@ -37,14 +37,14 @@ steps:
     feedsToUse: 'config'
     nugetConfigPath: 'NuGet.config'
 
-- task: DotNetCoreCLI@2
+- task: DotNetCoreCLI@2.210.0
   displayName: 'Test $(buildConfiguration) configuration'
   inputs:
     command: 'test'
     projects: '$(solution)'
     arguments: '--no-build -c $(buildConfiguration) -p:ProjectLoadStyle=All'
 
-- task: DotNetCoreCLI@2
+- task: DotNetCoreCLI@2.210.0
   displayName: 'Pack NuGet packages'
   inputs:
     command: 'custom'
