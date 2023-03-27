@@ -4,7 +4,7 @@
     <Import Project="../Directory.Build.targets" />
 
     <PropertyGroup>
-        <MinVerMinimumMajorMinor>5.1</MinVerMinimumMajorMinor>
+        <MinVerMinimumMajorMinor>6.0</MinVerMinimumMajorMinor>
         <MinVerTagPrefix>v</MinVerTagPrefix>
         <PublishRepositoryUrl>true</PublishRepositoryUrl>
         <Product>VisualOn OpenXmlPowerTools</Product>
