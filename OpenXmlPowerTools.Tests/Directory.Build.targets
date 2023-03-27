@@ -4,8 +4,6 @@
     <Import Project="../Directory.Build.targets" />
 
     <PropertyGroup>
-        <MinVerMinimumMajorMinor>5.1</MinVerMinimumMajorMinor>
-        <MinVerTagPrefix>v</MinVerTagPrefix>
         <SignAssembly Condition="'$(VO)' != ''">true</SignAssembly>
         <AssemblyOriginatorKeyFile>..\DocumentFormat.OpenXml.snk</AssemblyOriginatorKeyFile>
         <RunSettingsFilePath>$(MSBuildThisFileDirectory)/test.runsettings</RunSettingsFilePath>
@@ -13,8 +11,6 @@
 
     <ItemGroup>
         <PackageReference Include="Microsoft.CodeCoverage" Version="17.4.1" PrivateAssets="All" />
-        <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.1.1" PrivateAssets="All" />
-        <PackageReference Include="MinVer" Version="4.3.0" PrivateAssets="All" />
     </ItemGroup>
 
 </Project>
