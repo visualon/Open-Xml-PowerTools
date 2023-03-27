@@ -42,7 +42,7 @@
     <When Condition=" '$(ProjectLoadStyle)' == 'net461' ">
       <PropertyGroup>
         <ProductTargetFrameworks>net461</ProductTargetFrameworks>
-        <TestTargetFrameworks>net461</TestTargetFrameworks>
+        <TestTargetFrameworks>net462</TestTargetFrameworks>
         <SamplesFrameworks>net461</SamplesFrameworks>
       </PropertyGroup>
       <ItemGroup>
@@ -61,7 +61,7 @@
           (tracked at https://github.com/dotnet/project-system/issues/1519)
         -->
         <ProductTargetFrameworks>netstandard2.0;net461</ProductTargetFrameworks>
-        <TestTargetFrameworks>net461;net6.0</TestTargetFrameworks>
+        <TestTargetFrameworks>net462;net6.0</TestTargetFrameworks>
         <SamplesFrameworks>net461;net6.0</SamplesFrameworks>
       </PropertyGroup>
       <ItemGroup>
