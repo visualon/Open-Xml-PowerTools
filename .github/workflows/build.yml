@@ -49,6 +49,7 @@ jobs:
     runs-on: windows-latest
     timeout-minutes: 15
     permissions:
+      contents: write
       packages: write
 
     env:
