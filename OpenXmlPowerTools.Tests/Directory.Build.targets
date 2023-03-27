@@ -4,8 +4,6 @@
     <Import Project="../Directory.Build.targets" />
 
     <PropertyGroup>
-        <SignAssembly Condition="'$(VO)' != ''">true</SignAssembly>
-        <AssemblyOriginatorKeyFile>..\DocumentFormat.OpenXml.snk</AssemblyOriginatorKeyFile>
         <RunSettingsFilePath>$(MSBuildThisFileDirectory)/test.runsettings</RunSettingsFilePath>
     </PropertyGroup>
 
