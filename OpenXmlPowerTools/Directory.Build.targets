@@ -7,6 +7,7 @@
         <MinVerMinimumMajorMinor>6.0</MinVerMinimumMajorMinor>
         <MinVerTagPrefix>v</MinVerTagPrefix>
         <PublishRepositoryUrl>true</PublishRepositoryUrl>
+        <PackageIconUrl>https://visualon.github.io/img/nuget.png</PackageIconUrl>
         <Product>VisualOn OpenXmlPowerTools</Product>
         <Description>Signed version of original OpenXmlPowerTools</Description>
         <Company>VisualOn GmbH</Company>
