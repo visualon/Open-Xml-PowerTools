@@ -7,8 +7,4 @@
         <RunSettingsFilePath>$(MSBuildThisFileDirectory)/test.runsettings</RunSettingsFilePath>
     </PropertyGroup>
 
-    <ItemGroup>
-        <PackageReference Include="Microsoft.CodeCoverage" Version="17.5.0" PrivateAssets="All" />
-    </ItemGroup>
-
 </Project>
