@@ -19,8 +19,7 @@
         "https://github.com/microsoft/vstest",
         "https://github.com/Microsoft/MSBuildSdks",
         "https://github.com/theramis/Snapper",
-        "https://nsubstitute.github.io/",
-        "https://togithub.com/fluffynuts/NExpect"
+        "https://nsubstitute.github.io/"
       ],
       "automerge": "true"
     },
@@ -28,7 +27,8 @@
       "description": "Automerge test deps",
       "matchSourceUrlPrefixes": [
         "https://github.com/nsubstitute/",
-        "https://github.com/nunit/"
+        "https://github.com/nunit/",
+        "https://github.com/xunit/"
       ],
       "automerge": "true"
     }
