@@ -1,11 +1,15 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": ["local>visualon/renovate-config"],
+  "extends": [
+    "local>visualon/renovate-config"
+  ],
   "forkProcessing": "enabled",
   "packageRules": [
     {
       "description": "Don't automerge until we've good tests",
-      "matchPackagePatterns": ["*"],
+      "matchPackagePatterns": [
+        "*"
+      ],
       "automerge": false
     },
     {
@@ -21,7 +25,7 @@
         "https://github.com/theramis/Snapper",
         "https://nsubstitute.github.io/"
       ],
-      "automerge": "true"
+      "automerge": true
     },
     {
       "description": "Automerge test deps",
@@ -30,7 +34,7 @@
         "https://github.com/nunit/",
         "https://github.com/xunit/"
       ],
-      "automerge": "true"
+      "automerge": true
     }
   ]
 }
