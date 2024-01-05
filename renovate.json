@@ -21,7 +21,7 @@
         "https://github.com/theramis/Snapper",
         "https://nsubstitute.github.io/"
       ],
-      "automerge": "true"
+      "automerge": true
     },
     {
       "description": "Automerge test deps",
@@ -30,7 +30,7 @@
         "https://github.com/nunit/",
         "https://github.com/xunit/"
       ],
-      "automerge": "true"
+      "automerge": true
     }
   ]
 }
