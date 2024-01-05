@@ -95,7 +95,7 @@ jobs:
           NUGET_KEY: ${{ secrets.NUGET_API_KEY }}
 
       - name: Generate changelog with git-cliff
-        uses: tj-actions/git-cliff@v1
+        uses: tj-actions/git-cliff@b8b856ab6829a813d4ed58476b6faaec9c2b24ef # v1.4.2
         if: ${{ github.ref_type == 'tag' }}
         with:
           args: --latest --strip all
