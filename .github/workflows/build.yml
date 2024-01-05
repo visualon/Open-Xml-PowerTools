@@ -58,6 +58,8 @@ jobs:
 
     steps:
       - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
+        with:
+          fetch-depth: 0 # Important for changelog
 
       - uses: actions/cache@704facf57e6136b1bc63b828d79edcd491f0ee84 # v3.3.2
         with:
@@ -92,8 +94,19 @@ jobs:
           NUGET_SOURCE: https://api.nuget.org/v3/index.json
           NUGET_KEY: ${{ secrets.NUGET_API_KEY }}
 
-      - uses: marvinpinto/action-automatic-releases@919008cf3f741b179569b7a6fb4d8860689ab7f0 # v1.2.1
+      - name: Generate changelog with git-cliff
+        uses: tj-actions/git-cliff@v1
         if: ${{ github.ref_type == 'tag' }}
         with:
-          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          args: --latest --strip all
+          output: "CHANGELOG.md"
+
+      - name: Create Release
+        uses: ncipollo/release-action@v1
+        if: ${{ github.ref_type == 'tag' }}
+        with:
+          artifacts: "dist/*"
+          token: ${{ secrets.GITHUB_TOKEN }}
+          bodyFile: "CHANGELOG.md"
+          draft: false
           prerelease: ${{ contains(github.ref_name, '-') }}
