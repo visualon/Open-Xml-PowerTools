@@ -24,7 +24,7 @@
 
   <PropertyGroup>
     <DocumentFormatOpenXmlVersion>2.14.0</DocumentFormatOpenXmlVersion>
-    <SystemDrawingCommonVersion>4.7.0</SystemDrawingCommonVersion>
+    <SystemDrawingCommonVersion>4.7.3</SystemDrawingCommonVersion>
     <SystemIOPackagingVersion>4.7.0</SystemIOPackagingVersion>
   </PropertyGroup>
 
