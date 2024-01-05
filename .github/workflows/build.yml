@@ -20,6 +20,7 @@ jobs:
       - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
         with:
           fetch-depth: 2
+          filter: blob:none
 
       - uses: actions/cache@704facf57e6136b1bc63b828d79edcd491f0ee84 # v3.3.2
         with:
@@ -58,8 +59,6 @@ jobs:
 
     steps:
       - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
-        with:
-          fetch-depth: 0 # Important for changelog
 
       - uses: actions/cache@704facf57e6136b1bc63b828d79edcd491f0ee84 # v3.3.2
         with:
@@ -94,19 +93,31 @@ jobs:
           NUGET_SOURCE: https://api.nuget.org/v3/index.json
           NUGET_KEY: ${{ secrets.NUGET_API_KEY }}
 
+  gh-release:
+    needs: 
+      - build
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    if: ${{ github.ref_type == 'tag' }}
+    steps:
+      - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
+        with:
+          fetch-depth: 0 # Important for changelog
+          filter: blob:none
+
+      - name: prepare version
+        run: echo VERSION=${GITHUB_REF_NAME#v} >> $GITHUB_ENV # trim leading 'v' from tag name
+
       - name: Generate changelog with git-cliff
         uses: tj-actions/git-cliff@b8b856ab6829a813d4ed58476b6faaec9c2b24ef # v1.4.2
-        if: ${{ github.ref_type == 'tag' }}
         with:
           args: --latest --strip all
           output: "CHANGELOG.md"
 
       - name: Create Release
         uses: ncipollo/release-action@6c75be85e571768fa31b40abf38de58ba0397db5 # v1.13.0
-        if: ${{ github.ref_type == 'tag' }}
         with:
-          artifacts: "dist/*"
-          token: ${{ secrets.GITHUB_TOKEN }}
           bodyFile: "CHANGELOG.md"
-          draft: false
+          name: ${{ env.VERSION }}
           prerelease: ${{ contains(github.ref_name, '-') }}
