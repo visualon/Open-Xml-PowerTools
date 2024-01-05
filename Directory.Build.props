@@ -23,7 +23,7 @@
   </PropertyGroup>
 
   <PropertyGroup>
-    <DocumentFormatOpenXmlVersion>2.14.0</DocumentFormatOpenXmlVersion>
+    <DocumentFormatOpenXmlVersion>3.0.0</DocumentFormatOpenXmlVersion>
     <SystemDrawingCommonVersion>4.7.0</SystemDrawingCommonVersion>
     <SystemIOPackagingVersion>4.7.0</SystemIOPackagingVersion>
   </PropertyGroup>

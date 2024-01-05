@@ -17,6 +17,7 @@ using DocumentFormat.OpenXml.Packaging;
 using System.Drawing;
 using System.Security.Cryptography;
 using OpenXmlPowerTools;
+using DocumentFormat.OpenXml.Experimental;
 
 // It is possible to optimize DescendantContentAtoms
 
@@ -4624,7 +4625,7 @@ namespace OpenXmlPowerTools
                                         var openXmlPartInNewDocument = part;
                                         return gc.Select(gce =>
                                         {
-                                            Package packageOfSourceContent = openXmlPartOfInsertedContent.OpenXmlPackage.Package;
+                                            IPackage packageOfSourceContent = openXmlPartOfInsertedContent.OpenXmlPackage.GetPackage();
                                             Package packageOfNewContent = openXmlPartInNewDocument.OpenXmlPackage.Package;
                                             PackagePart partInDeletedDocument = packageOfSourceContent.GetPart(part.Uri);
                                             PackagePart partInNewDocument = packageOfNewContent.GetPart(part.Uri);
