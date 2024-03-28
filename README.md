@@ -3,6 +3,9 @@
 [![codecov](https://codecov.io/gh/visualon/Open-Xml-PowerTools/branch/main/graph/badge.svg?token=WjZMqkAmxe)](https://codecov.io/gh/visualon/Open-Xml-PowerTools)
 ![LICENSE](https://img.shields.io/github/license/visualon/Open-Xml-PowerTools)
 
+> [!WARNING]
+> This project is no longer maintained. Use [Clippit](https://github.com/sergey-tihon/Clippit), which is a successor of Open-Xml-PowerTools.
+
 News
 ====
 
